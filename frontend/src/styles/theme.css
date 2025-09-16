@@ -1,0 +1,22 @@
+
+@font-face {
+    font-family: "BitcountGrid";
+    src: url("/src/assets/fonts/BitcountGridDouble-VariableFont.ttf") format("truetype");
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "KodeMono";
+    src: url("/src/assets/fonts/KodeMono-VariableFont_wght.ttf") format("truetype");
+    font-style: normal;
+}
+
+@theme {
+    --font-display: "KodeMono";
+    --font-stylish: "BitcountGrid";
+
+    --color-lowl: #19183B;
+    --color-jooj: #708993;
+    --color-tlat: #A1C2BD;
+    --color-rbaa: #E7F2EF;
+}
