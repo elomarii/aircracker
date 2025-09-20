@@ -1,4 +1,4 @@
-module Documents/trial
+module aircracker
 
 go 1.23
 
