@@ -5,3 +5,7 @@
 export function GetInterfaces() {
   return window['go']['aircracker']['App']['GetInterfaces']();
 }
+
+export function GetServices() {
+  return window['go']['aircracker']['App']['GetServices']();
+}

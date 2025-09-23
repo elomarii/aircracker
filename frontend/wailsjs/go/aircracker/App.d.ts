@@ -3,3 +3,5 @@
 import {aircracker} from '../models';
 
 export function GetInterfaces():Promise<Array<aircracker.Interface>>;
+
+export function GetServices():Promise<Array<aircracker.NetSvc>>;

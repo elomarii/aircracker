@@ -14,6 +14,51 @@ type Interface struct {
 	Info string
 }
 
+type NetSvc struct {
+	Name string
+	Loaded bool
+	Active bool
+	Status string
+	Desc string
+}
+
+func (a *App) GetServices() ([]NetSvc, error) {
+	runtime.LogInfo(a.ctx, "Enumerating wireless network services")
+
+	cmd := exec.Command("systemctl", "list-units", "--type=service", "--state=running")
+
+	var out bytes.Buffer
+	cmd.Stdout = &out
+	err := cmd.Run()
+	if err != nil {
+		runtime.LogError(a.ctx, err.Error())
+		return nil, err
+	}
+
+	var services []NetSvc
+
+	runtime.LogInfo(a.ctx, out.String())
+	entries := strings.Split(out.String(), "\n")
+
+	for _, entry := range entries {
+		if strings.Contains(strings.ToLower(entry), "wpa") ||
+		   strings.Contains(strings.ToLower(entry), "network") ||
+		   strings.Contains(strings.ToLower(entry), "wifi") ||
+		   strings.Contains(strings.ToLower(entry), "iwd") {
+			fields := strings.Fields(entry)
+			svc := NetSvc{
+				fields[0],
+				fields[1] == "loaded",
+				fields[2] == "active",
+				fields[3],
+				strings.Join(fields[4:], " "),
+			}
+			services = append(services, svc)
+		}
+	}
+
+	return services, err
+}
 
 // Enumerate available wireless network interfaces
 // Returns a list of (Interface) objects
