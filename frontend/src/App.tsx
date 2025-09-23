@@ -2,7 +2,7 @@ import InterfacePanel from "./layout/InterfacePanel"
 
 function Layout() {
     return (
-        <div id="layout" className="h-dvh w-full justify-self-center md:max-w-600">
+        <div id="layout" className="h-dvh justify-self-center mx-4 sm:mx-8 md:mx-15">
             <div id="header">
                 <h1 className="font-stylish text-[46px] px-5 py-4">AirCracker</h1>
             </div>
