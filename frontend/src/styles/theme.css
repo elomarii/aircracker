@@ -15,15 +15,27 @@
     --font-display: "KodeMono";
     --font-stylish: "BitcountGrid";
 
-    --color-lowl: #19183B;
-    --color-jooj: #708993;
-    --color-tlat: #A1C2BD;
-    --color-rbaa: #E7F2EF;
+    --color-darker: #000000;
+    --color-dark: #14213D;
+    --color-primary: #FCA311;
+    --color-light: #E5E5E5;
+    --color-lighter: #ffffff;
+
 }
 
+#root {
+    background-color: var(--color-dark);
+    min-height: 100vh;
+    color: white;
+    font-family: var(--font-display);
+}
 
 h2 {
     font-size: 22px;
     font-weight: 550;
+    color: var(--color-primary);
 }
 
+p.desc-string {
+    color: var(--color-light);
+}
